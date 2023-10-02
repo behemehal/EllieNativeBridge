@@ -7,11 +7,11 @@
 #include <stdlib.h>
 
 typedef struct IntegerType {
-  uintptr_t value;
+  intptr_t value;
 } IntegerType;
 
 typedef struct StringType {
-  uint32_t *value;
+  const char *value;
 } StringType;
 
 typedef struct BooleanType {
@@ -31,7 +31,7 @@ typedef struct ByteType {
 } ByteType;
 
 typedef struct ArrayType {
-  struct Types *value;
+  const struct Types *value;
 } ArrayType;
 
 typedef enum Types_Tag {
@@ -42,6 +42,7 @@ typedef enum Types_Tag {
   TYPES_DOUBLE,
   TYPES_BYTE,
   TYPES_ARRAY,
+  TYPES_NULL,
 } Types_Tag;
 
 typedef struct Types {
@@ -71,13 +72,8 @@ typedef struct Types {
   };
 } Types;
 
-typedef struct Argument {
-  uint32_t *name;
-  struct Types argument_type;
-} Argument;
-
 typedef struct CallbackError {
-  uint32_t *message;
+  const char *message;
   uintptr_t code;
 } CallbackError;
 
@@ -99,17 +95,23 @@ typedef struct ReturnType {
   };
 } ReturnType;
 
+typedef struct ThreadInfo {
+  uintptr_t id;
+  uintptr_t stack_id;
+  uintptr_t stack_caller;
+} ThreadInfo;
+
+typedef struct ReturnType (*FunctionElementCallback)(struct ThreadInfo thread_info,
+                                                     struct Types *params);
+
 typedef struct EllieFunction {
-  uint32_t *name;
-  struct Argument *arguments;
-  struct Types return_type;
-  struct ReturnType (*on_call)(struct Argument *arguments);
+  const char *name;
+  FunctionElementCallback on_call;
 } EllieFunction;
 
 typedef struct EllieModule {
-  uint32_t *name;
-  uint32_t *version;
-  struct EllieFunction *functions;
+  const char *name;
+  const struct EllieFunction *functions;
 } EllieModule;
 
 #endif /* _ELLIE_NATIVE_BRIDGE_H */

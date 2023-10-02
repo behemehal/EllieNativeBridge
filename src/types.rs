@@ -2,12 +2,12 @@ use libc::c_char;
 
 #[repr(C)]
 pub struct IntegerType {
-    pub value: usize,
+    pub value: isize,
 }
 
 #[repr(C)]
 pub struct StringType {
-    pub value: *mut c_char,
+    pub value: *const c_char,
 }
 
 #[repr(C)]
@@ -37,7 +37,7 @@ pub struct ByteType {
 
 #[repr(C)]
 pub struct ArrayType {
-    pub value: *mut Types,
+    pub value: *const Types,
 }
 
 #[repr(C)]
@@ -49,4 +49,5 @@ pub enum Types {
     Double(DoubleType),
     Byte(ByteType),
     Array(ArrayType),
+    Null
 }

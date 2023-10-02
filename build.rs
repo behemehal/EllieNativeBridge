@@ -1,14 +1,15 @@
-use ::safer_ffi::prelude::*;
+//use ::safer_ffi::prelude::*;
 use std::env;
 use std::path::PathBuf;
 
 fn main() {
-    ::safer_ffi::headers::builder()
-        .to_file("rust_points.h")
-        .unwrap()
-        .generate();
+    /* ::safer_ffi::headers::builder()
+    .to_file("rust_points.h")
+    .unwrap()
+    .generate()
+    .unwrap(); */
 
-    /* let crate_dir = env::var("CARGO_MANIFEST_DIR").unwrap();
+    let crate_dir = env::var("CARGO_MANIFEST_DIR").unwrap();
 
     let package_name = env::var("CARGO_PKG_NAME").unwrap();
     let output_file = target_dir()
@@ -17,7 +18,7 @@ fn main() {
         .to_string();
     cbindgen::generate(&crate_dir)
         .unwrap()
-        .write_to_file(&output_file); */
+        .write_to_file(&output_file);
 }
 
 /// Find the location of the `target/` directory. Note that this may be

@@ -4,15 +4,13 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-safer-ffi = { version = "*", features = ["proc_macros" ] }
+safer-ffi = { version = "*", features = ["proc_macros"] }
 libc = "0.2.103"
 
 [build-dependencies]
-cbindgen = "0.24.3"
-safer-ffi = { version = "*", features = ["proc_macros", "headers" ] }
+cbindgen = "0.26.0"
 
 [lib]
 crate-type = ["cdylib", "staticlib", "rlib"]
 
 [features]
-
