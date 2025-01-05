@@ -226,9 +226,12 @@ pub struct FunctionCallParameter {
     pub memory_location: usize,
 }
 
+pub type FunctionCallback =
+    extern "Rust" fn(arguments: Vec<FunctionCallParameter>) -> FunctionAnswer;
+
 pub struct EllieFunction {
     pub name: &'static str,
-    pub on_call: extern "Rust" fn(arguments: Vec<FunctionCallParameter>) -> FunctionAnswer,
+    pub on_call: FunctionCallback,
 }
 
 pub struct EllieModule {
