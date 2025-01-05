@@ -1,3 +1,7 @@
+# Ellie Naive Bridge
+Ellie native bridge is a bridge between Ellie and native code. It allows you to define functions in native code and call them from Ellie.
+
+```rust
 use ellie_native_bridge::rust::{
     EllieFunction, EllieModule, FunctionAnswer, FunctionCallParameter,
 };
@@ -33,3 +37,7 @@ pub extern "Rust" fn load_module() -> EllieModule {
         }],
     }
 }
+```
+
+## How to use
+Check rust and c examples in `examples` directory, also you can take a look at the `tests` directory for how things work.

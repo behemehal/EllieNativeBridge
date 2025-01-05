@@ -8,3 +8,4 @@ ellie_native_bridge = { path = "../../../." }
 
 [lib]
 crate-type = ["rlib"]
+

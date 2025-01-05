@@ -8,12 +8,12 @@ enum-as-inner = { version = "0.6.1", optional = true }
 libc = { version = "0.2.169", optional = true }
 
 [features]
-default = ["rust_bridge"]
+default = ["rust_bridge", "c_bridge"]
 rust_bridge = ["enum-as-inner"]
 c_bridge = ["libc", "cbindgen"]
 
-[lib]
-crate-type = ["rlib", "dylib", "staticlib"]
-
 [build-dependencies]
 cbindgen = { version = "0.27.0", optional = true }
+
+[dev-dependencies]
+libloading = "0.8.6"
