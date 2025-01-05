@@ -4,15 +4,12 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-safer-ffi = { version = "*", features = ["proc_macros" ] }
-libc = "0.2.103"
-
-[build-dependencies]
-cbindgen = "0.24.3"
-safer-ffi = { version = "*", features = ["proc_macros", "headers" ] }
-
-[lib]
-crate-type = ["cdylib", "staticlib", "rlib"]
+enum-as-inner = { version = "0.6.1", optional = true }
 
 [features]
+default = ["rust_bridge"]
+rust_bridge = ["enum-as-inner"]
+
+[lib]
+crate-type = ["rlib", "dylib"]
 
