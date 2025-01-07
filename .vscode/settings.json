@@ -11,5 +11,8 @@
         "xstddef": "cpp",
         "xstring": "cpp",
         "xutility": "cpp"
-    }
+    },
+    "rust-analyzer.linkedProjects": [
+        "./examples/rust"
+    ]
 }
