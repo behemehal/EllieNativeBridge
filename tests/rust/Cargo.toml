@@ -1,0 +1,10 @@
+[package]
+name = "rust_integration_test"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+ellie_native_bridge = { path = "../../.", features = ["rust_bridge"] }
+
+[lib]
+crate-type = ["cdylib"]

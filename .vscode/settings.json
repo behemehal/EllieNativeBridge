@@ -1,5 +1,18 @@
 {
+    "files.associations": {
+        "*.toml": "toml",
+        "*.jsx": "javascriptreact",
+        "atomic": "cpp",
+        "cmath": "cpp",
+        "memory": "cpp",
+        "system_error": "cpp",
+        "type_traits": "cpp",
+        "utility": "cpp",
+        "xstddef": "cpp",
+        "xstring": "cpp",
+        "xutility": "cpp"
+    },
     "rust-analyzer.linkedProjects": [
-        "./example/c/Cargo.toml"
+        "./examples/rust"
     ]
 }

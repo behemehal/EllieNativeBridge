@@ -1,0 +1,11 @@
+[package]
+name = "ellie_rust_add"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+ellie_native_bridge = { path = "../../../." }
+
+[lib]
+crate-type = ["rlib"]
+

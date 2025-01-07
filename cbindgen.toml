@@ -9,4 +9,5 @@ include_version = false
 rename_variants = "QualifiedScreamingSnakeCase"
 
 [export]
-include = ["EllieModule"]
+include = ["EllieModule", "ExampleExport"]
+
